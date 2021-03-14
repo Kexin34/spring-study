@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="MysqlImpl" class="com.kexin.dao.UserDaoMysqlImpl"/>
+    <bean id="OracleImpl" class="com.kexin.dao.UserDaoOracleImpl"/>
+
+    <bean id="ServiceImpl" class="com.kexin.service.UserServiceImpl">
+        <!--注意: 这里的name并不是属性 , 而是set方法后面的那部分, 首字母小写-->
+        <!--res: 引用spring容器中创建好的对象（用上面<bean>中的id值）-->
+        <!--value: 具体的值，基本数据类型 -->
+        <property name="userDao" ref="OracleImpl"/><!--具体使用哪个接口这里可以直接配置-->
+    </bean>
+
+</beans>

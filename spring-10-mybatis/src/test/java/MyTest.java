@@ -43,4 +43,14 @@ public class MyTest {
         }
     }
 
+    @Test
+    public void test3(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserMapper mapper = (UserMapper) context.getBean("userMapper2");
+        List<User> userList = mapper.selectUser();
+
+        for (User user : userList){
+            System.out.println(user);
+        }
+    }
 }

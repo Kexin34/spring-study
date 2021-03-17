@@ -9,13 +9,9 @@
 
     <import resource="spring-dao.xml"/>
 
-
+    <!--bean-->
     <bean id="userMapper" class="com.kexin.mapper.UserMapperImpl">
-        <property name="sqlSession" ref="sqlSession"/>
-    </bean>
-
-    <bean id="userMapper2" class="com.kexin.mapper.UserMapperImpl2">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
 </beans>
